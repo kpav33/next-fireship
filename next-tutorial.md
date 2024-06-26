@@ -26,6 +26,7 @@
 
 - **Turbo Pack**: Add the `--turbo` flag to scripts in `package.json` to use Next.js with Turbopack (experimental feature).
 - **Server Components**: In Next.js 13, all components are server components by default, allowing data fetching directly inside them with `async/await`.
+- Check **notes** folder for additional tutorial code, with added comments
 
 ## Code Example: Creating a Note
 
