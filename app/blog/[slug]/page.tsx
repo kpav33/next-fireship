@@ -1,5 +1,5 @@
 // export const dynamic = "force-dynamic"; // set as SSR
-export const revalidate = 1200; // not necessary, just for ISR demonstration
+// export const revalidate = 1200; // not necessary, just for ISR demonstration
 
 // Create Interface for fetched data
 interface Post {
@@ -8,21 +8,22 @@ interface Post {
   slug: string;
 }
 
+// Removed static generation because of Netlify issues
 // If you have data like blog posts, where data doesn't change often, you would want to statically generate all of those pages, allowing them to be stored on CDN, for very fast page loads
 // To generate all of the dynamic pages we use generateStaticParams function
-export async function generateStaticParams() {
-  // Fetch all of the posts
-  const posts: Post[] = await fetch("http://localhost:3000/api/content").then(
-    (res) => res.json()
-  );
+// export async function generateStaticParams() {
+//   // Fetch all of the posts
+//   const posts: Post[] = await fetch("http://localhost:3000/api/content").then(
+//     (res) => res.json()
+//   );
 
-  // Return an object with parameters that we want to render in advance
-  // This tells Next.js how to find all of your data, so it can be rendered in advance
-  // When using static generation it also makes sense to export revalidate value, to allow for the content to be updated every so often
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+//   // Return an object with parameters that we want to render in advance
+//   // This tells Next.js how to find all of your data, so it can be rendered in advance
+//   // When using static generation it also makes sense to export revalidate value, to allow for the content to be updated every so often
+//   return posts.map((post) => ({
+//     slug: post.slug,
+//   }));
+// }
 
 // Interface for passed slug from props
 interface Props {
