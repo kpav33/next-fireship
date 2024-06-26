@@ -1,6 +1,7 @@
 // You don't need to create an api folder to make api routes, but it makes sense to do it, so all of the api routes are in one location and not scattered around the app
 
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
 
 const posts = [
   {
@@ -37,5 +38,15 @@ const posts = [
 
 // Create GET endpoint
 export async function GET() {
+  // Auth lets you access auth data on server side as well
+  const session = await getServerSession();
+
+  if (!session) {
+    // Redirect or render something else
+    console.log("Not logged in.");
+  }
+
+  console.log("Logged in!");
+
   return NextResponse.json(posts);
 }

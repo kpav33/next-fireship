@@ -8,6 +8,7 @@ import "./globals.css";
 // import Link from "next/link";
 
 import NavMenu from "./NavMenu";
+import AuthProvider from "./AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,9 +25,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      {/* Comment out later, used for navigation Notes app */}
-      {/* <body>
+    // This way we get access to user all over the app
+    <AuthProvider>
+      <html lang="en">
+        {/* Comment out later, used for navigation Notes app */}
+        {/* <body>
         <main>
           <nav>
             <Link href="/">Home</Link>
@@ -35,10 +38,11 @@ export default function RootLayout({
           {children}
         </main>
       </body> */}
-      <body className={inter.className}>
-        <NavMenu />
-        {children}
-      </body>
-    </html>
+        <body className={inter.className}>
+          <NavMenu />
+          {children}
+        </body>
+      </html>
+    </AuthProvider>
   );
 }

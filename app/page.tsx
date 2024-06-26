@@ -1,4 +1,6 @@
 import React from "react";
+// import { redirect } from "next/navigation";
+// import { getServerSession } from "next-auth";
 
 // notes folder is not part of the main app, that is where the basic next tutorial code is
 // Also pocketbase is not part of the main app, it was used for the basic next tutorial
@@ -75,7 +77,24 @@ import React from "react";
 // You can also use Prisma Studio to view and manage your tables and rows in the browser
 
 export default function Home() {
-  return <main>Hello World</main>;
+  // const session = getServerSession();
+
+  // Way to protect your routes, by checking for session if user is authenticated and redirecting if they are not
+  // if (!session) {
+  //   console.log(session);
+  //   redirect("/api/auth/signin");
+  //   // return <p>You must be signed in...</p>
+  // }
+
+  return (
+    <div>
+      <h1>Welcome to NextSpace!</h1>
+      <p>
+        A next-gen social media app to connect with frens inspired by MySpace
+      </p>
+      <p>To get started, sign up for an account</p>
+    </div>
+  );
 }
 
 // Check next-tutorial.md file
