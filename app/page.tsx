@@ -14,7 +14,7 @@ import React from "react";
 // Route handlers
 // Route handlers are based on the request and response interfaces from the fetch api and are used to create apis in Next.js. This routes don't return apis, but usually just JSON objects.
 // You can create an api route by replace page.tsx file with a route.ts file. It can not be used in the same directory as a page file. This file can export one or more functions that have a name that corresponds to HTTP methods. Each function has a request parameter that gives you information about the incoming request and you can return the response to handle the request.
-// Api routes will always run server side and are by default executed in the node.js runtime, but you can switch this to an edge runtime by simply exporting the runtime variable => export const runtime = "edge";, there are alsoother configuration options to configure things like caching.
+// Api routes will always run server side and are by default executed in the node.js runtime, but you can switch this to an edge runtime by simply exporting the runtime variable => export const runtime = "edge";, there are also other configuration options to configure things like caching.
 // Route handlers allow you to build RESTful api's in Next.js.
 
 // Layouts
