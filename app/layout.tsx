@@ -5,7 +5,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-// import Link from "next/link";
+import Link from "next/link";
 
 import NavMenu from "./NavMenu";
 import AuthProvider from "./AuthProvider";
@@ -39,8 +39,38 @@ export default function RootLayout({
         </main>
       </body> */}
         <body className={inter.className}>
-          <NavMenu />
-          {children}
+          <div className="container">
+            <NavMenu />
+            <main>{children}</main>
+
+            <footer>
+              <p>
+                Created for the{" "}
+                <Link href="https://fireship.io">
+                  Fireship Next.js 14 Full Course
+                </Link>
+              </p>
+              <ul>
+                <li>
+                  <Link href={"/about"}>About</Link>
+                </li>{" "}
+                |
+                <li>
+                  <Link href={"https://www.youtube.com/@Fireship"}>
+                    YouTube
+                  </Link>
+                </li>{" "}
+                |
+                <li>
+                  <Link href={"/login"}>Source Code</Link>
+                </li>{" "}
+                |
+                <li>
+                  <Link href={"https://nextjs.org"}>NextJS Docs</Link>
+                </li>
+              </ul>
+            </footer>
+          </div>
         </body>
       </html>
     </AuthProvider>
