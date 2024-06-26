@@ -1,5 +1,8 @@
 import React from "react";
 
+// notes folder is not part of the main app, that is where the basic next tutorial code is
+// Also pocketbase is not part of the main app, it was used for the basic next tutorial
+
 // Using npm, not yarn with this app!
 
 // Check notes.md file

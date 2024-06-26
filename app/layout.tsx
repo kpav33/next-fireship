@@ -1,7 +1,13 @@
+// "use client";
+// // If we want to have some sort of interactive feature like a sign in button here, we need to turn it into a client component
+// But its better to create a new component on the "leaves on the component tree" to add that interactivity. You should use server components as much as possible and add interactivity with client components only when needed, because this will keep your JavaScript bundle as small as possible, which will boost performance.
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 // import Link from "next/link";
+
+import NavMenu from "./NavMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +35,10 @@ export default function RootLayout({
           {children}
         </main>
       </body> */}
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <NavMenu />
+        {children}
+      </body>
     </html>
   );
 }

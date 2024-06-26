@@ -21,6 +21,7 @@
 - `error.tsx`: (Optional) Isolates errors to specific parts of an app, automatically wrapping a page or child layout in a React Error Boundary.
 - `template.tsx`: (Optional) Similar to layouts but mounts a new instance on navigation, useful for enter/exit animations.
 - `head.tsx`: (Optional) Defines the contents of the `<head>` tag for a given route.
+- `not-found.tsx`: Renders a custom UI when the `notFound` function is thrown within a route segment. It handles expected `notFound()` errors and any unmatched URLs, providing a user-friendly 404 page. By default, it is a Server Component and can be marked as async to fetch and display data. The `not-found.tsx` file does not accept any props. If file is in app folder `app/not-found.tsx` it handles global unmathced URLs.
 
 ## Additional Tips
 
