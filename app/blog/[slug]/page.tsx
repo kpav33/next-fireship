@@ -11,19 +11,19 @@ interface Post {
 // Removed static generation because of Netlify issues
 // If you have data like blog posts, where data doesn't change often, you would want to statically generate all of those pages, allowing them to be stored on CDN, for very fast page loads
 // To generate all of the dynamic pages we use generateStaticParams function
-// export async function generateStaticParams() {
-//   // Fetch all of the posts
-//   const posts: Post[] = await fetch("http://localhost:3000/api/content").then(
-//     (res) => res.json()
-//   );
+export async function generateStaticParams() {
+  // Fetch all of the posts
+  const posts: Post[] = await fetch("http://localhost:3000/api/content").then(
+    (res) => res.json()
+  );
 
-//   // Return an object with parameters that we want to render in advance
-//   // This tells Next.js how to find all of your data, so it can be rendered in advance
-//   // When using static generation it also makes sense to export revalidate value, to allow for the content to be updated every so often
-//   return posts.map((post) => ({
-//     slug: post.slug,
-//   }));
-// }
+  // Return an object with parameters that we want to render in advance
+  // This tells Next.js how to find all of your data, so it can be rendered in advance
+  // When using static generation it also makes sense to export revalidate value, to allow for the content to be updated every so often
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 // Interface for passed slug from props
 interface Props {
@@ -35,6 +35,8 @@ export default async function BlogPostPage({ params }: Props) {
   // deduped
   // When you are in a server component, you always have to use fully qualified URL, relative URLs won't work
 
+  // issue with build is trying to call api routes on the server, it doesnt make any sense to call api routes in server components, since they also run on the server, so just call the code there directly
+  // Instead of api route, we should just call the relevant code from api route here directly, since this code runs on the server anyway
   const posts: Post[] = await fetch(
     "http://localhost:3000/api/content"
     // Manually set caching
