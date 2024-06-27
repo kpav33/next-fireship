@@ -4,6 +4,7 @@ import React from "react";
 
 // This app was removed from deployed apps in Netlify, because of build issues, since code that we have in api routes, shouldn't really be there, we should use it in server components directly
 // When working on app router projects, make sure to not make that mistake, since server components need absolute url and calling api routes won't work the same on localhost and production, makes more sense to execute the server side code directly in server components and not in api routes
+// You can use api routes normally in client componets
 
 // notes folder is not part of the main app, that is where the basic next tutorial code is
 // Also pocketbase is not part of the main app, it was used for the basic next tutorial
