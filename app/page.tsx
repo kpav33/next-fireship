@@ -81,6 +81,7 @@ import React from "react";
 
 export default function Home() {
   // const session = getServerSession();
+  // console.log(session);
 
   // Way to protect your routes, by checking for session if user is authenticated and redirecting if they are not
   // if (!session) {
